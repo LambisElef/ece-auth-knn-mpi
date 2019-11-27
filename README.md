@@ -1,2 +1,2 @@
-# kNN_MPI
+# kNN MPI
 Parallel and Distributed Systems AUTh Course - Assignment II
