@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <openmpi/mpi.h>
+#include <mpi.h>
 #include "knnring.h"
 
 knnresult distrAllkNN(double * X, int n, int d, int k) {

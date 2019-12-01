@@ -5,10 +5,11 @@
  *      Author: Lambis
  */
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <openmpi/mpi.h>
+#include <mpi.h>
 #include "knnring.h"
 
 knnresult distrAllkNN(double * X, int n, int d, int k) {
@@ -98,6 +99,24 @@ knnresult distrAllkNN(double * X, int n, int d, int k) {
     // Cleanup.
     free(Y_temp);
     free(Y);
+
+    // Variables for finding the total minimun and maximum distances of the knn neighbors.
+    double node_minDist, node_maxDist, total_minDist, total_maxDist;
+
+    // Assigning the first point's minimum and maximum distances as nodes minimum and maximum distances excluding the zero distance from its self.
+    node_minDist = knn.ndist[1];
+    node_maxDist = knn.ndist[k-1];
+
+    for (int i=1; i<n; i++) {
+		if (knn.ndist[i*k+1] < node_minDist)
+			node_minDist = knn.ndist[i*k+1];
+		if(knn.ndist[i*k + k-1] > node_maxDist)
+			node_maxDist = knn.ndist[i*k + k-1];
+	}
+
+    // MPI Reduction and saving minimum distance to total_minDist and maximum distance to total_maxDist.
+	MPI_Reduce(&node_minDist, &total_minDist, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD);
+	MPI_Reduce(&node_maxDist, &total_maxDist, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
 
     return knn;
 }
