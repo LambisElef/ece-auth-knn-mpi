@@ -63,13 +63,13 @@ knnresult distrAllkNN(double * X, int n, int d, int k) {
 
     for (int i=1; i<world_size; i++) {
 
-        start = MPIWtime();
+        start = MPI_Wtime();
 
         // Wait if previous transfer isn't finished yet.
         MPI_Wait(&send_request, &status);
         MPI_Wait(&recv_request, &status);
 
-        end = MPIWtime();
+        end = MPI_Wtime();
         printf("Node %d: Communication #d stalled the execution for %f seconds.\n", world_rank, i-1, end-start);
 
         // Copying received array into corpus array.
