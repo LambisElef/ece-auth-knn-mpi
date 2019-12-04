@@ -70,7 +70,7 @@ knnresult distrAllkNN(double * X, int n, int d, int k) {
         MPI_Wait(&recv_request, &status);
 
         end = MPI_Wtime();
-        printf("Node %d: Communication #d stalled the execution for %f seconds.\n", world_rank, i-1, end-start);
+        printf("Node %d: Communication #%d stalled the execution for %f seconds.\n", world_rank, i-1, end-start);
 
         // Copying received array into corpus array.
         memcpy(Y, Y_temp, n*d * sizeof(double));
@@ -110,7 +110,7 @@ knnresult distrAllkNN(double * X, int n, int d, int k) {
         }
 
         end = MPI_Wtime();
-        printf("Node %d: Calculation #d took %f seconds.\n", world_rank, i, end-start);
+        printf("Node %d: Calculation #%d took %f seconds.\n", world_rank, i, end-start);
 
     }
 
