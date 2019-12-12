@@ -130,11 +130,11 @@ knnresult distrAllkNN(double * X, int n, int d, int k) {
 			node_minDist = knn.ndist[i*k+1];
 		if(knn.ndist[i*k + k-1] > node_maxDist)
 			node_maxDist = knn.ndist[i*k + k-1];
-	}
+    }
 
     // MPI Reduction and saving minimum distance to total_minDist and maximum distance to total_maxDist.
-	MPI_Reduce(&node_minDist, &total_minDist, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD);
-	MPI_Reduce(&node_maxDist, &total_maxDist, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
+    MPI_Reduce(&node_minDist, &total_minDist, 1, MPI_DOUBLE, MPI_MIN, 0, MPI_COMM_WORLD);
+    MPI_Reduce(&node_maxDist, &total_maxDist, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
 
     return knn;
 }
