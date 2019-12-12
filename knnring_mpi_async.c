@@ -126,10 +126,10 @@ knnresult distrAllkNN(double * X, int n, int d, int k) {
     node_maxDist = knn.ndist[k-1];
 
     for (int i=1; i<n; i++) {
-		if (knn.ndist[i*k+1] < node_minDist)
-			node_minDist = knn.ndist[i*k+1];
-		if(knn.ndist[i*k + k-1] > node_maxDist)
-			node_maxDist = knn.ndist[i*k + k-1];
+        if (knn.ndist[i*k+1] < node_minDist)
+	    node_minDist = knn.ndist[i*k+1];
+	if(knn.ndist[i*k + k-1] > node_maxDist)
+	    node_maxDist = knn.ndist[i*k + k-1];
     }
 
     // MPI Reduction and saving minimum distance to total_minDist and maximum distance to total_maxDist.
