@@ -1,4 +1,18 @@
-## kNN – Serial and MPI Implementation in C
+# ece-auth-knn-mpi
+School of Electrical and Computer Engineering, Aristotle University of Thessaloniki
+
+This is the second assignment for the course "Parallel and Distributed Systems" for the 2019-2020 academic year.
+
+### Files description:
+- knnring.h:            Header file for the 3 different implementations.
+- knnring_mpi_async.c:  Source file for the MPI with asynchronous communication implementation.
+- knnring_mpi_sync.c:   Source file for the MPI with synchronous communication implmentation.
+- knnring_sequential.c: Source file for the sequential implementation.
+- mpi_async.sh:         Bash script for the MPI with asynchronous communication deployment.
+- mpi_sync.sh:          Bash script for the MPI with synchronous communication deployment.
+- tester.c:             Source file for the code correctness tester for the sequantial implementation provided by the professors.
+- tester_helper.h:      Header file for the tester provided by the professors.
+- tester_mpi.c:         Source file for the code correctness tester for the MPI implementation provided by the professors.
 
 ### Περιγραφή του προβλήματος:
 Ζητούμενο της εργασίας ήταν η δημιουργία ενός αλγορίθμου ο οποίος για κάθε σημείο ενός συνόλου Χ βρίσκει τους k πλησιέστερους γείτονες (σημεία) και τις αντίστοιχες αποστάσεις στο σύνολο αυτό.  
