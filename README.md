@@ -13,6 +13,8 @@ This is the second assignment for the course "Parallel and Distributed Systems" 
 - tester.c:             Source file for the code correctness tester for the sequantial implementation provided by the professors.
 - tester_helper.h:      Header file for the tester provided by the professors.
 - tester_mpi.c:         Source file for the code correctness tester for the MPI implementation provided by the professors.
+- Assignment.pdf:       The assignment.
+- Report.pdf:           The assignment's report.
 
 ### Περιγραφή του προβλήματος:
 Ζητούμενο της εργασίας ήταν η δημιουργία ενός αλγορίθμου ο οποίος για κάθε σημείο ενός συνόλου Χ βρίσκει τους k πλησιέστερους γείτονες (σημεία) και τις αντίστοιχες αποστάσεις στο σύνολο αυτό.  
